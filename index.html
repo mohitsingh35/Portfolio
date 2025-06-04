@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohit Singh - Android Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <span class="material-symbols-outlined">android</span>
+                </div>
+                <span class="brand-text">Mohit Singh</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">
+                    <span class="nav-link-text">Home</span>
+                    <div class="nav-link-glow"></div>
+                </a>
+                <a href="#about" class="nav-link">
+                    <span class="nav-link-text">About</span>
+                    <div class="nav-link-glow"></div>
+                </a>
+                <a href="#experience" class="nav-link">
+                    <span class="nav-link-text">Experience</span>
+                    <div class="nav-link-glow"></div>
+                </a>
+                <a href="#projects" class="nav-link">
+                    <span class="nav-link-text">Projects</span>
+                    <div class="nav-link-glow"></div>
+                </a>
+                <a href="#skills" class="nav-link">
+                    <span class="nav-link-text">Skills</span>
+                    <div class="nav-link-glow"></div>
+                </a>
+                <a href="#contact" class="nav-link">
+                    <span class="nav-link-text">Contact</span>
+                    <div class="nav-link-glow"></div>
+                </a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="material-symbols-outlined">menu</span>
+                <div class="toggle-glow"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-greeting">
+                        <span class="greeting-text">Hello World!</span>
+                        <div class="greeting-glow"></div>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-line">I'm</span>
+                        <span class="accent-text">Mohit Singh</span>
+                        <div class="title-reflection"></div>
+                    </h1>
+                    <h2 class="hero-subtitle">
+                        <span class="subtitle-text">Android Developer</span>
+                        <div class="subtitle-glow"></div>
+                    </h2>
+                    <p class="hero-description">
+                        Crafting innovative mobile experiences with cutting-edge Android technologies. 
+                        Building the future, one app at a time.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary glass-enhanced-btn" onclick="scrollToSection('projects')">
+                            <span class="btn-icon">
+                                <span class="material-symbols-outlined">rocket_launch</span>
+                            </span>
+                            <span class="btn-text">Explore Projects</span>
+                            <div class="btn-glow"></div>
+                            <div class="btn-reflection"></div>
+                        </button>
+                        <button class="btn-secondary glass-btn" onclick="scrollToSection('contact')">
+                            <span class="btn-icon">
+                                <span class="material-symbols-outlined">connect_without_contact</span>
+                            </span>
+                            <span class="btn-text">Let's Connect</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-avatar">
+                        <div class="avatar-ring ring-1"></div>
+                        <div class="avatar-ring ring-2"></div>
+                        <div class="avatar-ring ring-3"></div>
+                        
+                        <div class="avatar-content has-image">
+                            <img src="mohit.jpeg" alt="Mohit Singh" class="avatar-image">
+                            <span class="material-symbols-outlined">person</span>
+                        </div>
+                        </div>
+                        <div class="avatar-glow"></div>
+                        <div class="avatar-reflection"></div>
+
+                        <div class="floating-icons">
+                        <div class="floating-icon icon-1">
+                            <span class="material-symbols-outlined">android</span>
+                        </div>
+                        <div class="floating-icon icon-2">
+                            <span class="material-symbols-outlined">code</span>
+                        </div>
+                        <div class="floating-icon icon-3">
+                            <span class="material-symbols-outlined">smartphone</span>
+                        </div>
+                    </div>
+                    </div>
+  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">About Me</span>
+                <div class="title-glow"></div>
+                <div class="title-reflection"></div>
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="text-card glass-card">
+                        <p class="about-paragraph">
+                            I'm a passionate Android Developer currently pursuing B.Tech in Computer Science at JSS Academy of Technical Education, Noida. 
+                            With hands-on experience in developing scalable mobile applications, I've contributed to apps with over 1M+ downloads.
+                        </p>
+                        <p class="about-paragraph">
+                            My expertise lies in modern Android development using Kotlin, Jetpack Compose, and following MVVM architecture patterns. 
+                            I'm also actively involved in open-source projects and leading the Android development team at Nibble Computer Society.
+                        </p>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-content">
+                                <span class="stat-number neon-text">1M+</span>
+                                <span class="stat-label">App Downloads</span>
+                                <div class="stat-glow"></div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-content">
+                                <span class="stat-number neon-text">5+</span>
+                                <span class="stat-label">Projects</span>
+                                <div class="stat-glow"></div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-content">
+                                <span class="stat-number neon-text">2+</span>
+                                <span class="stat-label">Years Experience</span>
+                                <div class="stat-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         
+                    <div class="education-card glass-card">
+                        <div class="education-icon">
+                            <span class="material-symbols-outlined">school</span>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="education-info">
+                            <h3 class="education-title">B.Tech in Computer Science</h3>
+                            <p class="education-institution">JSS Academy of Technical Education, Noida</p>
+                            <span class="education-date neon-text">Nov 2022 - Aug 2026</span>
+                        </div>
+                        <div class="card-glow"></div>
+                        <div class="card-reflection"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">Experience</span>
+                <div class="title-glow"></div>
+                <div class="title-reflection"></div>
+            </h2>
+            <div class="timeline">
+                <div class="timeline-line">
+                    <div class="line-glow"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-inner"></div>
+                        <div class="marker-glow"></div>
+                        <div class="marker-pulse"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="experience-card glass-card">
+                            <div class="experience-header">
+                                <h3 class="experience-title">Freelance Android Developer</h3>
+                                <span class="company neon-text">Taskstacks</span>
+                                <div class="experience-meta">
+                                    <span class="duration">Aug 2024 – May 2025</span>
+                                    <span class="location">Remote, Noida</span>
+                                </div>
+                            </div>
+                            <ul class="experience-achievements">
+                                <li>Led end-to-end development and successful deployment of Taskstacks app on Play Store</li>
+                                <li>Integrated Room database for water and task reminders with scheduled notifications</li>
+                                <li>Implemented foreground services for timer and stopwatch with focus music and ambient sounds</li>
+                            </ul>
+                            <div class="experience-tags">
+                                <span class="tag neon-tag">Kotlin</span>
+                                <span class="tag neon-tag">Room Database</span>
+                                <span class="tag neon-tag">Foreground Services</span>
+                            </div>
+                            <div class="card-glow"></div>
+                            <div class="card-reflection"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-inner"></div>
+                        <div class="marker-glow"></div>
+                        <div class="marker-pulse"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="experience-card glass-card">
+                            <div class="experience-header">
+                                <h3 class="experience-title">Android Developer Intern</h3>
+                                <span class="company neon-text">MemoNeet</span>
+                                <div class="experience-meta">
+                                    <span class="duration">Oct 2023 – Dec 2023</span>
+                                    <span class="location">Remote, Noida</span>
+                                </div>
+                            </div>
+                            <ul class="experience-achievements">
+                                <li>Optimized authentication flow with OTPless login, reducing SMS costs by 50%</li>
+                                <li>Implemented Firebase Cloud Messaging (FCM) for Android 14+ devices</li>
+                                <li>Developed offline ROOM database for efficient user course content management</li>
+                                <li>Actively engaged with users to identify issues and provide targeted bug fixes</li>
+                            </ul>
+                            <div class="experience-tags">
+                                <span class="tag neon-tag">Firebase FCM</span>
+                                <span class="tag neon-tag">Room Database</span>
+                                <span class="tag neon-tag">OTPless</span>
+                            </div>
+                            <div class="card-glow"></div>
+                            <div class="card-reflection"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-inner"></div>
+                        <div class="marker-glow"></div>
+                        <div class="marker-pulse"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="experience-card glass-card">
+                            <div class="experience-header">
+                                <h3 class="experience-title">Android Developer</h3>
+                                <span class="company neon-text">Nibble Computer Society</span>
+                                <div class="experience-meta">
+                                    <span class="duration">Apr 2023 - Present</span>
+                                    <span class="location">JSSATE Noida</span>
+                                </div>
+                            </div>
+                            <ul class="experience-achievements">
+                                <li>Leading Android development team in official CSE Department society</li>
+                                <li>Mentoring junior developers in modern Android development practices</li>
+                                <li>Organizing workshops and technical events for students</li>
+                            </ul>
+                            <div class="experience-tags">
+                                <span class="tag neon-tag">Leadership</span>
+                                <span class="tag neon-tag">Mentoring</span>
+                                <span class="tag neon-tag">Team Management</span>
+                            </div>
+                            <div class="card-glow"></div>
+                            <div class="card-reflection"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">Featured Projects</span>
+                <div class="title-glow"></div>
+                <div class="title-reflection"></div>
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <span class="material-symbols-outlined">assignment</span>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <span class="material-symbols-outlined">open_in_new</span>
+                                <div class="link-glow"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Oxygen PMS</h3>
+                    <p class="project-description">
+                        Open-source Agile Project Management + Issue tracking software built for internal management. 
+                        Offers 90% cost reduction compared to alternatives like Jira.
+                    </p>
+                    <div class="project-features">
+                        <span class="feature neon-feature">Data Analytics</span>
+                        <span class="feature neon-feature">Google Gemini AI</span>
+                        <span class="feature neon-feature">Agile Techniques</span>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">Dagger Hilt</span>
+                        <span class="tech-tag">Retrofit</span>
+                        <span class="tech-tag">MVVM</span>
+                    </div>
+                    <div class="card-glow"></div>
+                    <div class="card-reflection"></div>
+                </div>
+
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <span class="material-symbols-outlined">event</span>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <span class="material-symbols-outlined">open_in_new</span>
+                                <div class="link-glow"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Mario: Everything NCS</h3>
+                    <p class="project-description">
+                        Open-source event management application with user management software. 
+                        Published on Google Play Store with 250+ active users.
+                    </p>
+                    <div class="project-features">
+                        <span class="feature neon-feature">Real-time Notifications</span>
+                        <span class="feature neon-feature">Gamified Engagement</span>
+                        <span class="feature neon-feature">Mario Coins System</span>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">MVVM</span>
+                        <span class="tech-tag">Room DB</span>
+                        <span class="tech-tag">Firebase FCM</span>
+                    </div>
+                    <div class="card-glow"></div>
+                    <div class="card-reflection"></div>
+                </div>
+
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <span class="material-symbols-outlined">store</span>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <span class="material-symbols-outlined">open_in_new</span>
+                                <div class="link-glow"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Buxx: College Marketplace</h3>
+                    <p class="project-description">
+                        Hyperlocal community marketplace application where users exchange or sell items. 
+                        Features secure chat system for user-seller communication.
+                    </p>
+                    <div class="project-features">
+                        <span class="feature neon-feature">Secure Chat System</span>
+                        <span class="feature neon-feature">Real-time Notifications</span>
+                        <span class="feature neon-feature">Hyperlocal Community</span>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">Jetpack Compose</span>
+                        <span class="tech-tag">MVVM</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                    <div class="card-glow"></div>
+                    <div class="card-reflection"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">Technical Skills</span>
+                <div class="title-glow"></div>
+                <div class="title-reflection"></div>
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category glass-card">
+                    <h3 class="category-title">
+                        <span class="category-icon">
+                            <span class="material-symbols-outlined">code</span>
+                            <div class="icon-glow"></div>
+                        </span>
+                        <span class="category-text neon-text">Languages</span>
+                    </h3>
+                    <div class="skills-list">
+                        <span class="skill-chip neon-chip">Kotlin</span>
+                        <span class="skill-chip neon-chip">Java</span>
+                        <span class="skill-chip neon-chip">C++</span>
+                        <span class="skill-chip neon-chip">Python</span>
+                        <span class="skill-chip neon-chip">SQL</span>
+                    </div>
+                    <div class="card-glow"></div>
+                    <div class="card-reflection"></div>
+                </div>
+
+                <div class="skill-category glass-card">
+                    <h3 class="category-title">
+                        <span class="category-icon">
+                            <span class="material-symbols-outlined">build</span>
+                            <div class="icon-glow"></div>
+                        </span>
+                        <span class="category-text neon-text">Developer Tools</span>
+                    </h3>
+                    <div class="skills-list">
+                        <span class="skill-chip neon-chip">Android Studio</span>
+                        <span class="skill-chip neon-chip">VS Code</span>
+                        <span class="skill-chip neon-chip">AWS</span>
+                        <span class="skill-chip neon-chip">MongoDB</span>
+                        <span class="skill-chip neon-chip">Firebase</span>
+                    </div>
+                    <div class="card-glow"></div>
+                    <div class="card-reflection"></div>
+                </div>
+
+                <div class="skill-category glass-card">
+                    <h3 class="category-title">
+                        <span class="category-icon">
+                            <span class="material-symbols-outlined">android</span>
+                            <div class="icon-glow"></div>
+                        </span>
+                        <span class="category-text neon-text">Technologies & Frameworks</span>
+                    </h3>
+                    <div class="skills-list">
+                        <span class="skill-chip neon-chip">Android SDK</span>
+                        <span class="skill-chip neon-chip">Jetpack Compose</span>
+                        <span class="skill-chip neon-chip">JUnit</span>
+                        <span class="skill-chip neon-chip">Gradle</span>
+                        <span class="skill-chip neon-chip">Django</span>
+                        <span class="skill-chip neon-chip">Fast API</span>
+                        <span class="skill-chip neon-chip">Git CI/CD</span>
+                        <span class="skill-chip neon-chip">Linux</span>
+                        <span class="skill-chip neon-chip">Docker</span>
+                    </div>
+                    <div class="card-glow"></div>
+                    <div class="card-reflection"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">Get In Touch</span>
+                <div class="title-glow"></div>
+                <div class="title-reflection"></div>
+            </h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-text glass-card">
+                        <h3 class="contact-title neon-text">Let's work together!</h3>
+                        <p class="contact-description">
+                            I'm always interested in new opportunities and exciting projects. 
+                            Whether you have a question or just want to say hi, feel free to reach out!
+                        </p>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="android-mascot-container">
+                        <div class="android-mascot">
+                            <!-- Android Head -->
+                            <div class="android-head">
+                                <div class="android-antenna antenna-left"></div>
+                                <div class="android-antenna antenna-right"></div>
+                                <div class="android-eye eye-left"></div>
+                                <div class="android-eye eye-right"></div>
+                                <div class="android-head-glow"></div>
+                            </div>
+                            
+                            <!-- Android Body -->
+                            <div class="android-body">
+                                <div class="android-body-glow"></div>
+                            </div>
+                            
+                            <!-- Android Arms -->
+                            <div class="android-arm arm-left"></div>
+                            <div class="android-arm arm-right"></div>
+                            
+                            <!-- Android Legs -->
+                            <div class="android-leg leg-left"></div>
+                            <div class="android-leg leg-right"></div>
+                            
+                            <!-- Floating Code Elements -->
+                            <div class="floating-code code-1">&lt;/&gt;</div>
+                            <div class="floating-code code-2">{ }</div>
+                            <div class="floating-code code-3">fun()</div>
+                            <div class="floating-code code-4">@</div>
+                            
+                            <!-- Reflection -->
+                            <div class="android-reflection"></div>
+                        </div>
+                        
+                        <!-- Interactive Message
+                        <div class="mascot-message">
+                            <p class="message-text">Ready to build amazing Android apps together!</p>
+                            <div class="message-glow"></div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form glass-card">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" rows="5" class="form-input" required></textarea>
+                            <div class="input-glow"></div>
+                        </div>
+                        <button type="submit" class="btn-primary neon-btn">
+                            <span class="btn-icon">
+                                <span class="material-symbols-outlined">send</span>
+                            </span>
+                            <span class="btn-text">Send Message</span>
+                            <div class="btn-glow"></div>
+                            <div class="btn-reflection"></div>
+                        </button>
+                        <div class="card-glow"></div>
+                        <div class="card-reflection"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content glass-card">
+                <p class="footer-text">&copy; 2025 Mohit Singh</p>
+                <div class="footer-links">
+                    <a href="https://linkedin.com/in/yes-mohit" target="_blank" class="footer-link">
+                        <span>LinkedIn</span>
+                        <div class="link-glow"></div>
+                    </a>
+                    <a href="https://github.com/mohitsingh35" target="_blank" class="footer-link">
+                        <span>GitHub</span>
+                        <div class="link-glow"></div>
+                    </a>
+                    <a href="mailto:mohitsingh732@yahoo.com" class="footer-link">
+                        <span>Email</span>
+                        <div class="link-glow"></div>
+                    </a>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
