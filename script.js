@@ -483,29 +483,41 @@ document.addEventListener("DOMContentLoaded", () => {
     mouseTrail.forEach((point, index) => {
       const trail = document.createElement("div")
       trail.className = "mouse-trail"
+      const size = 6 + index * 0.8 // Increased base size
+      const opacity = (index / maxTrailLength) * 0.8 // Increased opacity
+
       trail.style.cssText = `
-                position: fixed;
-                left: ${point.x}px;
-                top: ${point.y}px;
-                width: ${4 + index * 0.5}px;
-                height: ${4 + index * 0.5}px;
-                background: radial-gradient(circle, var(--neon-cyan), transparent);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 9999;
-                opacity: ${index / maxTrailLength};
-                transform: translate(-50%, -50%);
-                filter: blur(${Math.max(0, 2 - index * 0.1)}px);
-            `
+        position: fixed;
+        left: ${point.x}px;
+        top: ${point.y}px;
+        width: ${size}px;
+        height: ${size}px;
+        background: radial-gradient(circle, var(--accent-blue), var(--accent-purple));
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: ${opacity};
+        transform: translate(-50%, -50%);
+        filter: blur(${Math.max(0, 1 - index * 0.05)}px);
+        box-shadow: 0 0 ${size * 2}px var(--accent-blue);
+      `
       document.body.appendChild(trail)
 
+      // Remove trail after animation
       setTimeout(() => {
         if (trail.parentNode) {
-          trail.parentNode.removeChild(trail)
+          trail.style.transition = "opacity 0.3s ease"
+          trail.style.opacity = "0"
+          setTimeout(() => {
+            if (trail.parentNode) {
+              trail.parentNode.removeChild(trail)
+            }
+          }, 300)
         }
-      }, 500)
+      }, 200)
     })
   }
+
 
   // Add custom CSS animations
   const style = document.createElement("style")
@@ -527,6 +539,7 @@ document.addEventListener("DOMContentLoaded", () => {
             100% { transform: translateX(0) scale(1); }
         }
     `
+
   document.head.appendChild(style)
 
   // Performance optimization: Clean up animations on page unload
@@ -539,6 +552,49 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     document.body.classList.add("loaded")
   }, 500)
+
+   const cursor = document.createElement("div")
+  cursor.className = "custom-cursor"
+  cursor.style.cssText = `
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--accent-blue), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease;
+  `
+  document.body.appendChild(cursor)
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX - 10 + "px"
+    cursor.style.top = e.clientY - 10 + "px"
+  })
+
+  // Cursor interactions
+  document.addEventListener("mousedown", () => {
+    cursor.style.transform = "scale(0.8)"
+  })
+
+  document.addEventListener("mouseup", () => {
+    cursor.style.transform = "scale(1)"
+  })
+
+  // Hover effects for interactive elements
+  const interactiveElements = document.querySelectorAll("a, button, .nav-link, .project-card, .skill-chip")
+  interactiveElements.forEach((element) => {
+    element.addEventListener("mouseenter", () => {
+      cursor.style.transform = "scale(1.5)"
+      cursor.style.background = "radial-gradient(circle, var(--accent-rose), transparent)"
+    })
+
+    element.addEventListener("mouseleave", () => {
+      cursor.style.transform = "scale(1)"
+      cursor.style.background = "radial-gradient(circle, var(--accent-blue), transparent)"
+    })
+  })
 })
 
 // Enhanced utility function for smooth scrolling to sections
