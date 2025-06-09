@@ -344,7 +344,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--md-sys-color-surface);
+  color: white;
   box-shadow: 0 0 20px rgba(56, 178, 255, 0.6); /* Brighter glow */
   animation: brand-glow 3s ease-in-out infinite alternate;
 }
