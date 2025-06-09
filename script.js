@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Add glow effect when menu is active
     if (navMenu.classList.contains("active")) {
-      navToggle.style.boxShadow = "0 0 20px rgba(0, 255, 255, 0.5)"
+      navToggle.style.boxShadow = "0 0 20px rgba(56, 178, 255, 0.6)"
     } else {
       navToggle.style.boxShadow = "none"
     }
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
 
         // Add temporary glow effect to clicked link
-        this.style.textShadow = "0 0 15px var(--neon-cyan)"
+        this.style.textShadow = "0 0 15px var(--accent-cyan)"
         setTimeout(() => {
           this.style.textShadow = ""
         }, 1000)
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Active navigation link highlighting with neon effects
+  // Active navigation link highlighting with enhanced effects
   function updateActiveNavLink() {
     const sections = document.querySelectorAll("section")
     const scrollPos = window.scrollY + 100
@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         if (navLink) {
           navLink.classList.add("active")
-          navLink.style.color = "var(--neon-cyan)"
-          navLink.style.textShadow = "0 0 10px var(--neon-cyan)"
+          navLink.style.color = "var(--accent-cyan)"
+          navLink.style.textShadow = "0 0 10px var(--accent-cyan)"
         }
       }
     })
@@ -81,10 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateNavbarBackground() {
     const navbar = document.querySelector(".navbar")
     if (window.scrollY > 50) {
-      navbar.style.background = "rgba(16, 16, 26, 0.95)"
-      navbar.style.boxShadow = "0 4px 20px rgba(0, 255, 255, 0.1)"
+      navbar.style.background = "rgba(10, 13, 18, 0.95)"
+      navbar.style.boxShadow = "0 4px 20px rgba(56, 178, 255, 0.15)"
     } else {
-      navbar.style.background = "rgba(16, 16, 26, 0.8)"
+      navbar.style.background = "rgba(10, 13, 18, 0.8)"
       navbar.style.boxShadow = "none"
     }
   }
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const animatedElements = [
       ".about-content > *",
       ".timeline-item",
-      ".project-card",
+      ".project-card-container",
       ".skill-category",
       ".contact-content > *",
     ]
@@ -149,55 +149,48 @@ document.addEventListener("DOMContentLoaded", () => {
   animateOnScroll()
 
   // Enhanced contact form functionality
-  const contactForm = document.getElementById("contact-form")
+const contactForm = document.getElementById("contact-form");
+
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
-      e.preventDefault()
+      e.preventDefault(); // Only block initially to validate
 
-      const formData = new FormData(contactForm)
-      const name = formData.get("name")
-      const email = formData.get("email")
-      const message = formData.get("message")
+      const formData = new FormData(contactForm);
+      const name = formData.get("name").trim();
+      const email = formData.get("email").trim();
+      const message = formData.get("message").trim();
 
-      // Enhanced validation with visual feedback
       if (!name || !email || !message) {
-        showNotification("Please fill in all fields.", "error")
-        highlightEmptyFields()
-        return
+        showNotification("Please fill in all fields.", "error");
+        highlightEmptyFields();
+        return;
       }
 
       if (!isValidEmail(email)) {
-        showNotification("Please enter a valid email address.", "error")
-        highlightInvalidEmail()
-        return
+        showNotification("Please enter a valid email address.", "error");
+        highlightInvalidEmail();
+        return;
       }
 
-      // Enhanced form submission animation
-      const submitButton = contactForm.querySelector('button[type="submit"]')
-      const originalText = submitButton.innerHTML
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.innerHTML;
 
-      submitButton.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span>Sending...'
-      submitButton.disabled = true
-      submitButton.style.background = "linear-gradient(45deg, var(--neon-purple), var(--neon-pink))"
-
-      // Add sending animation
-      submitButton.style.animation = "btn-glow-pulse 1s ease-in-out infinite"
+      submitButton.innerHTML = '<span class="material-symbols-outlined">hourglass_empty</span>Sending...';
+      submitButton.disabled = true;
+      submitButton.style.background = "linear-gradient(45deg, var(--accent-purple), var(--accent-pink))";
+      submitButton.style.animation = "btn-glow-pulse 1s ease-in-out infinite";
 
       setTimeout(() => {
-        showNotification("Thank you for your message! I'll get back to you soon.", "success")
-        contactForm.reset()
-        submitButton.innerHTML = originalText
-        submitButton.disabled = false
-        submitButton.style.background = ""
-        submitButton.style.animation = ""
+        // Reset animation and submit the form to FormSubmit
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
+        submitButton.style.background = "";
+        submitButton.style.animation = "";
 
-        // Add success glow effect
-        contactForm.style.boxShadow = "0 0 30px rgba(57, 255, 20, 0.3)"
-        setTimeout(() => {
-          contactForm.style.boxShadow = ""
-        }, 2000)
-      }, 2000)
-    })
+        // Trigger actual submission
+        contactForm.submit();
+      }, 1500);
+    });
   }
 
   // Enhanced utility functions
@@ -210,8 +203,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputs = contactForm.querySelectorAll(".form-input")
     inputs.forEach((input) => {
       if (!input.value.trim()) {
-        input.style.borderColor = "var(--neon-pink)"
-        input.style.boxShadow = "0 0 15px rgba(255, 20, 147, 0.5)"
+        input.style.borderColor = "var(--accent-pink)"
+        input.style.boxShadow = "0 0 15px rgba(244, 63, 94, 0.6)"
         setTimeout(() => {
           input.style.borderColor = ""
           input.style.boxShadow = ""
@@ -222,8 +215,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function highlightInvalidEmail() {
     const emailInput = contactForm.querySelector("#email")
-    emailInput.style.borderColor = "var(--neon-pink)"
-    emailInput.style.boxShadow = "0 0 15px rgba(255, 20, 147, 0.5)"
+    emailInput.style.borderColor = "var(--accent-pink)"
+    emailInput.style.boxShadow = "0 0 15px rgba(244, 63, 94, 0.6)"
     setTimeout(() => {
       emailInput.style.borderColor = ""
       emailInput.style.boxShadow = ""
@@ -241,9 +234,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const colorMap = {
-      success: "var(--neon-green)",
-      error: "var(--neon-pink)",
-      info: "var(--neon-cyan)",
+      success: "var(--accent-green)",
+      error: "var(--accent-pink)",
+      info: "var(--accent-cyan)",
     }
 
     notification.innerHTML = `
@@ -263,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
             padding: 16px 24px;
             border-radius: var(--md-sys-shape-corner-medium);
             border: 1px solid ${colorMap[type]};
-            box-shadow: 0 0 20px ${colorMap[type]}40;
+            box-shadow: 0 0 20px ${colorMap[type]}60;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -348,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
   skillChips.forEach((chip) => {
     chip.addEventListener("mouseenter", function () {
       this.style.transform = "translateY(-3px) scale(1.05)"
-      this.style.boxShadow = "0 0 25px rgba(0, 255, 255, 0.6)"
+      this.style.boxShadow = "0 0 25px rgba(56, 178, 255, 0.7)"
     })
 
     chip.addEventListener("mouseleave", function () {
@@ -365,29 +358,31 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Enhanced project cards 3D tilt effect
-  const projectCards = document.querySelectorAll(".project-card")
-  projectCards.forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      if (window.innerWidth <= 768) return // Disable on mobile
+  // Enhanced project card flip interactions
+  const projectCards = document.querySelectorAll(".project-card-container")
+  projectCards.forEach((container) => {
+    const card = container.querySelector(".project-card")
 
-      const rect = card.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-
-      const centerX = rect.width / 2
-      const centerY = rect.height / 2
-
-      const rotateX = (y - centerY) / 8
-      const rotateY = (centerX - x) / 8
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`
-      card.style.boxShadow = "0 20px 40px rgba(0, 255, 255, 0.2)"
+    // Add enhanced hover effects
+    container.addEventListener("mouseenter", () => {
+      if (window.innerWidth > 768) {
+        container.style.transform = "translateY(-10px)"
+        container.style.filter = "drop-shadow(0 20px 40px rgba(56, 178, 255, 0.2))"
+      }
     })
 
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) translateZ(0)"
-      card.style.boxShadow = ""
+    container.addEventListener("mouseleave", () => {
+      if (window.innerWidth > 768) {
+        container.style.transform = "translateY(0)"
+        container.style.filter = "none"
+      }
+    })
+
+    // Add click to flip functionality for mobile
+    container.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        card.style.transform = card.style.transform === "rotateY(180deg)" ? "rotateY(0deg)" : "rotateY(180deg)"
+      }
     })
   })
 
@@ -456,13 +451,11 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", parallaxEffect)
   }
 
-  // Enhanced mouse trail effect
+  // Enhanced mouse trail effect with brighter colors
   const mouseTrail = []
-  const maxTrailLength = 20
+  const maxTrailLength = 15
 
   document.addEventListener("mousemove", (e) => {
-    if (window.innerWidth <= 768) return // Disable on mobile
-
     mouseTrail.push({
       x: e.clientX,
       y: e.clientY,
@@ -483,8 +476,8 @@ document.addEventListener("DOMContentLoaded", () => {
     mouseTrail.forEach((point, index) => {
       const trail = document.createElement("div")
       trail.className = "mouse-trail"
-      const size = 6 + index * 0.8 // Increased base size
-      const opacity = (index / maxTrailLength) * 0.8 // Increased opacity
+      const size = 6 + index * 0.8
+      const opacity = (index / maxTrailLength) * 0.9 // Increased opacity
 
       trail.style.cssText = `
         position: fixed;
@@ -492,14 +485,14 @@ document.addEventListener("DOMContentLoaded", () => {
         top: ${point.y}px;
         width: ${size}px;
         height: ${size}px;
-        background: radial-gradient(circle, var(--accent-blue), var(--accent-purple));
+        background: radial-gradient(circle, var(--accent-cyan), var(--accent-purple));
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
         opacity: ${opacity};
         transform: translate(-50%, -50%);
         filter: blur(${Math.max(0, 1 - index * 0.05)}px);
-        box-shadow: 0 0 ${size * 2}px var(--accent-blue);
+        box-shadow: 0 0 ${size * 2}px var(--accent-cyan);
       `
       document.body.appendChild(trail)
 
@@ -517,7 +510,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 200)
     })
   }
-
 
   // Add custom CSS animations
   const style = document.createElement("style")
@@ -538,8 +530,12 @@ document.addEventListener("DOMContentLoaded", () => {
             50% { transform: translateX(0) scale(1.05); }
             100% { transform: translateX(0) scale(1); }
         }
-    `
 
+        @keyframes float-icon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+    `
   document.head.appendChild(style)
 
   // Performance optimization: Clean up animations on page unload
@@ -553,13 +549,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("loaded")
   }, 500)
 
-   const cursor = document.createElement("div")
+  // Enhanced cursor effect with brighter colors
+  const cursor = document.createElement("div")
   cursor.className = "custom-cursor"
   cursor.style.cssText = `
     position: fixed;
     width: 20px;
     height: 20px;
-    background: radial-gradient(circle, var(--accent-blue), transparent);
+    background: radial-gradient(circle, var(--accent-cyan), transparent);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
@@ -582,8 +579,8 @@ document.addEventListener("DOMContentLoaded", () => {
     cursor.style.transform = "scale(1)"
   })
 
-  // Hover effects for interactive elements
-  const interactiveElements = document.querySelectorAll("a, button, .nav-link, .project-card, .skill-chip")
+  // Enhanced hover effects for interactive elements
+  const interactiveElements = document.querySelectorAll("a, button, .nav-link, .project-card-container, .skill-chip")
   interactiveElements.forEach((element) => {
     element.addEventListener("mouseenter", () => {
       cursor.style.transform = "scale(1.5)"
@@ -592,9 +589,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
     element.addEventListener("mouseleave", () => {
       cursor.style.transform = "scale(1)"
-      cursor.style.background = "radial-gradient(circle, var(--accent-blue), transparent)"
+      cursor.style.background = "radial-gradient(circle, var(--accent-cyan), transparent)"
     })
   })
+
+  // Enhanced Android mascot interactions
+  const androidMascot = document.querySelector(".android-mascot")
+  if (androidMascot) {
+    androidMascot.addEventListener("click", () => {
+      // Add excited animation
+      androidMascot.style.animation = "mascot-excited 1s ease-in-out"
+
+      // Change floating code colors temporarily
+      const floatingCodes = document.querySelectorAll(".floating-code")
+      floatingCodes.forEach((code) => {
+        code.style.color = "var(--accent-rose)"
+        code.style.textShadow = "0 0 15px var(--accent-rose)"
+      })
+
+      setTimeout(() => {
+        androidMascot.style.animation = ""
+        floatingCodes.forEach((code) => {
+          code.style.color = "var(--accent-blue)"
+          code.style.textShadow = "0 0 10px var(--accent-blue)"
+        })
+      }, 1000)
+    })
+  }
+
+  // Add mascot excited animation
+  const mascotStyle = document.createElement("style")
+  mascotStyle.textContent = `
+    @keyframes mascot-excited {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      25% { transform: scale(1.1) rotate(-5deg); }
+      50% { transform: scale(1.05) rotate(0deg); }
+      75% { transform: scale(1.1) rotate(5deg); }
+    }
+  `
+  document.head.appendChild(mascotStyle)
 })
 
 // Enhanced utility function for smooth scrolling to sections
@@ -608,7 +641,7 @@ function scrollToSection(sectionId) {
     })
 
     // Add temporary glow effect to target section
-    section.style.boxShadow = "0 0 30px rgba(0, 255, 255, 0.3)"
+    section.style.boxShadow = "0 0 30px rgba(56, 178, 255, 0.4)"
     setTimeout(() => {
       section.style.boxShadow = ""
     }, 2000)
@@ -634,7 +667,7 @@ function trackPerformance() {
 
 trackPerformance()
 
-// Add easter egg - Konami code
+// Enhanced easter egg - Konami code with brighter effects
 let konamiCode = []
 const konamiSequence = [
   "ArrowUp",
@@ -663,7 +696,7 @@ document.addEventListener("keydown", (e) => {
 })
 
 function activateEasterEgg() {
-  // Create rainbow effect
+  // Create enhanced rainbow effect
   const style = document.createElement("style")
   style.textContent = `
         .neon-text, .neon-chip, .neon-tag, .neon-feature {
@@ -671,20 +704,20 @@ function activateEasterEgg() {
         }
         
         @keyframes rainbow-glow {
-            0% { color: var(--neon-cyan); text-shadow: 0 0 20px var(--neon-cyan); }
-            16% { color: var(--neon-blue); text-shadow: 0 0 20px var(--neon-blue); }
-            32% { color: var(--neon-purple); text-shadow: 0 0 20px var(--neon-purple); }
-            48% { color: var(--neon-pink); text-shadow: 0 0 20px var(--neon-pink); }
-            64% { color: var(--neon-orange); text-shadow: 0 0 20px var(--neon-orange); }
-            80% { color: var(--neon-yellow); text-shadow: 0 0 20px var(--neon-yellow); }
-            100% { color: var(--neon-green); text-shadow: 0 0 20px var(--neon-green); }
+            0% { color: var(--accent-cyan); text-shadow: 0 0 20px var(--accent-cyan); }
+            16% { color: var(--accent-blue); text-shadow: 0 0 20px var(--accent-blue); }
+            32% { color: var(--accent-purple); text-shadow: 0 0 20px var(--accent-purple); }
+            48% { color: var(--accent-pink); text-shadow: 0 0 20px var(--accent-pink); }
+            64% { color: var(--accent-rose); text-shadow: 0 0 20px var(--accent-rose); }
+            80% { color: var(--accent-amber); text-shadow: 0 0 20px var(--accent-amber); }
+            100% { color: var(--accent-green); text-shadow: 0 0 20px var(--accent-green); }
         }
     `
   document.head.appendChild(style)
 
-  // Show easter egg message
+  // Show enhanced easter egg message
   const message = document.createElement("div")
-  message.innerHTML = "🎉 Rainbow Mode Activated! 🌈"
+  message.innerHTML = "🎉 Enhanced Rainbow Mode Activated! 🌈✨"
   message.style.cssText = `
         position: fixed;
         top: 50%;
@@ -694,12 +727,13 @@ function activateEasterEgg() {
         backdrop-filter: blur(20px);
         padding: 20px 40px;
         border-radius: var(--md-sys-shape-corner-large);
-        border: 2px solid var(--neon-cyan);
+        border: 2px solid var(--accent-cyan);
         color: var(--md-sys-color-on-surface);
         font-size: 24px;
         font-weight: 500;
         z-index: 10001;
         animation: rainbow-glow 1s ease-in-out infinite;
+        box-shadow: 0 0 40px rgba(56, 178, 255, 0.6);
     `
 
   document.body.appendChild(message)
